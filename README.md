@@ -11,8 +11,6 @@ Create a database in `psql` for the lab, called `sequelize_lab`
 1. Open the `models.js` file.
 1. Write a Sequelize model for museums. It should include columns for:
    - name
-   - address
-   - description
 1. Write a model for artwork. It should include columns for:
    - title
    - year
