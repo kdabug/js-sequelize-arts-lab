@@ -2,9 +2,13 @@
 
 You and your team are building a JavaScript application to allow art-interested folks to browse museums and see artwork that each contains.
 
+## Create a database
+
+Create a database in `psql` for the lab, called `sequelize_lab`
+
 ## Create a `models.js` file
 
-1. Create a `models.js` file, and setup a `sequelize` database connection.
+1. Open the `models.js` file.
 1. Write a Sequelize model for museums. It should include columns for:
    - name
    - address
@@ -18,6 +22,8 @@ You and your team are building a JavaScript application to allow art-interested 
 1. Relate museums and artworks with the sequelize `hasMany()` and `belongsTo()` methods.
 1. Relate artworks and artists with the same methods.
 1. Export the models from the file
+
+Run `node models.js` to apply the model changes to the database, and read the output to make sure nothing goes wrong.
 
 ## Seed
 
