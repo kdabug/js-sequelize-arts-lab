@@ -1,4 +1,9 @@
-# Sequelize Lab
+# Sequelize Lab (45 minutes)
+
+## Learning Objectives
+
+- Build out a schema and models from technical specifications
+- Query a DB table using an ORM
 
 You and your team are building a JavaScript application to allow art-interested folks to browse museums and see artwork that each contains.
 
@@ -18,3 +23,8 @@ You and your team are building a JavaScript application to allow art-interested 
 ## Queries
 
 Practice queries in the `queries.js` file
+
+## Resources
+- http://docs.sequelizejs.com/class/lib/model.js~Model.html
+- http://docs.sequelizejs.com/variable/index.html#static-variable-DataTypes
+- http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html
