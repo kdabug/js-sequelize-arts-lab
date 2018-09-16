@@ -11,10 +11,15 @@
     "url": "git@git.generalassemb.ly:wdi-nyc-peloton/js-sequelize-lab.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Eric Lewis <eric.lewis@ga.co>",
   "license": "ISC",
   "dependencies": {
     "pg": "^7.4.3",
     "sequelize": "^4.38.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   }
 }

@@ -1,19 +1,23 @@
 const { Museum, Artwork, Artist } = require('./models');
 
 const main = async () => {
-  // Delete everything in the database.
+  // [1] Delete everything in the database.
   await Museum.destroy({
-    where: {}
+    where: {},
   });
+
   await Artwork.destroy({
-    where: {}
+    where: {},
   });
+
   await Artist.destroy({
-    where: {}
+    where: {},
   });
 
-  // Add seed data here
-
+  // [2] Add seed data here
+  /*  const kanye = await Artist.create({
+    name: 'Kanye West',
+  }); */
 };
 
 main();
