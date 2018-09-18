@@ -9,62 +9,102 @@ const sequelize = new Sequelize({
   },
 });
 
+// MODELNAME
+const Country = sequelize.define('country', {
+  code: {
+    type:       Sequelize.CHAR(3),
+    primaryKey: true,
+  },
 
-// Create your models here...
-
-
-/**
- * [1] Write a Sequelize model for museums. It should include columns for:
- *  - name
- */
-
-const Museum = sequelize.define('museum', {
-  name: Sequelize.STRING,
+  name: {
+    type:   Sequelize.STRING(64),
+    unique: true,
+  },
 });
 
-/**
- * [2] Write a model for artwork. It should include columns for:
- *  - title
- *  - year
- *  - medium
- */
+// style
+const Style = sequelize.define('style', {
+  name: {
+    type:   Sequelize.STRING(64),
+    unique: true,
+  },
+});
+
+const Artist = sequelize.define('artist', {
+  name: {
+    type:      Sequelize.STRING(64),
+    allowNull: false,
+  },
+  description: {
+    type: Sequelize.TEXT,
+  },
+  birthDate: {
+    type: Sequelize.DATEONLY,
+    key:  'birth_date',
+  },
+});
+
+const Media = sequelize.define('media', {
+  name: {
+    type:   Sequelize.STRING(64),
+    unique: true,
+  },
+});
+
+
+const Museum = sequelize.define('museum', {
+  name: {
+    type:      Sequelize.STRING(64),
+    allowNull: false,
+  },
+  description: {
+    type: Sequelize.TEXT,
+  },
+  address: {
+    type:      Sequelize.STRING(128),
+    allowNull: false,
+  },
+});
+
+Museum.belongsTo(Country, {
+  foreignKey: 'country_code',
+});
+
+
+Artist.belongsTo(Country, {
+  foreignKey: 'birth_place',
+});
+
+const Exhibit = sequelize.define('exhibit', {
+  exhibitStart: {
+    type: Sequelize.DATEONLY,
+    key: 'exhibit_start',
+  },
+  exhibitEnd: {
+    type: Sequelize.DATEONLY,
+    key: 'exhibit_end',
+  },
+});
 
 const Art = sequelize.define('art', {
   title: {
-    type:      Sequelize.STRING,
-    allowNull: false,
+    type:         Sequelize.STRING(255),
+    allowNull:    false,
+    defaultValue: 'untitled',
   },
-  year:   Sequelize.DATEONLY,
-  medium: {
-    type:      Sequelize.STRING,
-    allowNull: false,
-  },
+  description: Sequelize.TEXT,
 });
 
-/**
- * [3] Write a model for an artist. It should include columns for:
- *  - name
- */
 
-const Artist = sequelize.define('artist', {
-  name: Sequelize.STRING,
-});
-
-/**
- * [4] Relate museums and artworks with the sequelize methods
- * - `hasMany()`
- * - `belongsTo()`
- */
-
-Museum.hasMany(Art);
-Art.belongsTo(Museum);
-
-
-/**
- * [5] Relate artworks and artists with the same methods.
- */
-Artist.hasMany(Art);
+// Relationships
 Art.belongsTo(Artist);
+Artist.hasMany(Art);
+Exhibit.belongsTo(Museum);
+Exhibit.belongsTo(Art);
+Art.belongsToMany(Media, { through: 'art_media_xref' });
+Media.belongsToMany(Art, { through: 'art_media_xref' });
+Museum.belongsToMany(Style, { through: 'museum_style_xref' });
+Style.belongsToMany(Museum, { through: 'museum_style_xref' });
 
 
 // Create the tables in the database.
@@ -77,5 +117,9 @@ module.exports = {
   Museum,
   Art,
   Artist,
+  Media,
+  Country,
+  Exhibit,
+  Style,
   sequelize,
 };
