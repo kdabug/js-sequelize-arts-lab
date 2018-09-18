@@ -66,23 +66,16 @@ const Museum = sequelize.define('museum', {
   },
 });
 
-Museum.belongsTo(Country, {
-  foreignKey: 'country_code',
-});
 
-
-Artist.belongsTo(Country, {
-  foreignKey: 'birth_place',
-});
 
 const Exhibit = sequelize.define('exhibit', {
   exhibitStart: {
     type: Sequelize.DATEONLY,
-    key: 'exhibit_start',
+    key:  'exhibit_start',
   },
   exhibitEnd: {
     type: Sequelize.DATEONLY,
-    key: 'exhibit_end',
+    key:  'exhibit_end',
   },
 });
 
@@ -99,10 +92,16 @@ const Art = sequelize.define('art', {
 // Relationships
 Art.belongsTo(Artist);
 Artist.hasMany(Art);
-Exhibit.belongsTo(Museum);
-Exhibit.belongsTo(Art);
+
+Museum.belongsTo(Country, { foreignKey: 'country_code' });
+Artist.belongsTo(Country, { foreignKey: 'birth_place' });
+
+Museum.belongsToMany(Art, { through: Exhibit });
+Art.belongsToMany(Museum, { through: Exhibit });
+
 Art.belongsToMany(Media, { through: 'art_media_xref' });
 Media.belongsToMany(Art, { through: 'art_media_xref' });
+
 Museum.belongsToMany(Style, { through: 'museum_style_xref' });
 Style.belongsToMany(Museum, { through: 'museum_style_xref' });
 
