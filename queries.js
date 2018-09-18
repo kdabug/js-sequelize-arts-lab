@@ -1,10 +1,23 @@
-const { Museum, Artwork, Artist } = require('./models');
+const { Museum, Art, Artist } = require('./models');
 
 const main = async () => {
   // [1] Write a Sequelize query to find the Whitney from the database.
 
+  const whitney = await Museum.findOne({
+    where: {
+      name: {
+        $like: '%Whitney%',
+      },
+    },
+  });
+  // console.log(whitney);
+
   // [2] Use the `getArtworks()` method and log the name
   // of each artwork at the Whitney.
+
+  const artwork = await whitney.getArts();
+  artwork.forEach(poop => console.log('------:)---->>', poop.title));
+
 
   // [3] Write a Sequelize query to find "Early Sunday Morning".
 

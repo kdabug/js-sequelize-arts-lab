@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db:init:bonus": "dropdb --if-exists sequelize_lab_bonus && createdb sequelize_lab_bonus",
+    "db:reset:bonus": "node ./bonus/resetDb",
+    "db:models:bonus": "node ./bonus/models",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
