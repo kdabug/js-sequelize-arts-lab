@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db:init:bonus": "dropdb --if-exists sequelize_lab_bonus && createdb sequelize_lab_bonus",
-    "db:reset:bonus": "node ./bonus/resetDb",
-    "db:model:bonus": "node ./bonus/models",
-    "db:init": "dropdb --if-exists sequelize_lab && createdb sequelize_lab",
+    "db:init": "dropdb --if-exists sequelize_art && createdb sequelize_art",
     "db:reset": "node ./resetDb",
     "db:model": "node ./models",
     "test": "echo \"Error: no test specified\" && exit 1"

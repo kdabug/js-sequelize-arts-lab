@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 const db = new Sequelize({
-  database: 'sequelize_lab',
+  database: 'sequelize_art',
   dialect:  'postgres',
   define:   {
     underscored: true,
