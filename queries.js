@@ -10,14 +10,9 @@ const main = async () => {
       },
     },
   });
-  // console.log(whitney);
 
   // [2] Use the `getArtworks()` method and log the name
   // of each artwork at the Whitney.
-
-  const artwork = await whitney.getArts();
-  artwork.forEach(poop => console.log('------:)---->>', poop.title));
-
 
   // [3] Write a Sequelize query to find "Early Sunday Morning".
 

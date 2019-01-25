@@ -2,60 +2,32 @@ const { Museum, Art, Artist } = require('./models');
 
 const main = async () => {
   // [1] Delete everything in the database.
-  await Museum.destroy({
-    where: {},
-  });
-
-  await Art.destroy({
-    where: {},
-  });
-
-  await Artist.destroy({
-    where: {},
-  });
-
-  // [2] Add seed data here
-  /*  const kanye = await Artist.create({
-    name: 'Kanye West',
-  }); */
-
-  const [whitney, cooper] = await Museum.bulkCreate([{
-    name: 'The Whitney Museum',
-  }, {
-    name: 'Cooper-Hewitt Smithsonian Design Museum',
-  }]);
-
-  const [earlySundayMorning, childrenMeeting, peacockVase] = await Art.bulkCreate([{
-    title:  'Early Sunday Morning',
-    year:   1930,
-    medium: 'Oil Paint',
-  }, {
-    title:  'Children Meeting',
-    year:   1978,
-    medium: 'Oil Paint',
-  }, {
-    title:  'Peacock Vase',
-    year:   1890,
-    medium: 'Glass',
-  }]);
-
-  const [hopper, murray, tiffany] = await Artist.bulkCreate([{
-    name: 'Edward Hopper',
-  }, {
-    name: 'Elizabeth Murray',
-  }, {
-    name: 'Louis Comfort Tiffany',
-  }]);
-
-  await earlySundayMorning.setArtist(hopper);
-  await childrenMeeting.setArtist(murray);
-  await peacockVase.setArtist(tiffany);
-
-  whitney.setArts([earlySundayMorning, childrenMeeting]);
-  cooper.setArts(peacockVase);
 
 
-  console.log(cooper);
+
+  // [2] Using your museum models, create two museums: 
+  // a. The Whitney Museums
+  // b. Cooper-Hewitt Smithsonian Design Museum
+
+
+  
+
+  // [3] Using your artists models, create three artists: 
+  // a. Edward Hopper
+  // b. Elizabeth Murray
+  // c. Louis Comfort Tiffany
+
+
+
+
+  // [4] Using your artworks models, create three artworks: 
+  // a. Early Sunday Morning (1930, Oil Paint) by Edward Hopper, owned by the Whitney
+  // b. Children Meeting (1978, Oil Paint) by Elizabeth Murray, owned by the Whitney
+  // c. Peacock Vase (1890, Glass) by Louis Comfort Tiffany, owned by the Cooper-Hewitt
+
+
+
+  
 };
 
 
