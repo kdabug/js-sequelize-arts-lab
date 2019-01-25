@@ -55,7 +55,7 @@ const db = new Sequelize({
 
 
 // Create the tables in the database.
-sequelize.sync();
+db.sync();
 
 module.exports = {
 /**
