@@ -1,4 +1,4 @@
-const { Museum, Art, Artist } = require('./models');
+const { Museum, Artwork, Artist } = require('./models');
 
 const main = async () => {
   // [1] Write a Sequelize query to find the Whitney from the database.
