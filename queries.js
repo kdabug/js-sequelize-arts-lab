@@ -19,19 +19,19 @@ const main = async () => {
   // [4] For that artwork, use the `getArtist()` method and log out
   // the name of the artist that made it.
 
-  // [4] A new Museum is opening up, "Eric's Museum of Stickers"
+  // [5] A new Museum is opening up, "Eric's Museum of Stickers"
 
-  // [5] Based on an article about naming conventions, Eric decides
+  // [6] Based on an article about naming conventions, Eric decides
   // to rename the museum. Update the name to "Eric's Museum of Curious Stickers"
   // in the database.
 
-  // [6] Eric's museum, although appreciated by a niche population,
+  // [7] Eric's museum, although appreciated by a niche population,
   // doesn't make enough to cover the costs of a Lower East Side
   // storefront. Remove the museum from the database.
 
-  // [7] Write a query to find artworks from before 1950.
+  // [8] Write a query to find artworks from before 1950.
 
-  // [8] You decide to take a class in modern art history, and want to
+  // [9] You decide to take a class in modern art history, and want to
   // go see some relevant artworks.
   // Write a query to find artworks created after 1940 made out of Oil Paint.
 };
