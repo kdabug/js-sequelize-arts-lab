@@ -32,3 +32,5 @@ const main = async () => {
 
 
 main();
+
+//If you run your seed file in the terminal, you will receive an error. Can you figure out why?
