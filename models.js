@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize({
+const sequelize = new Sequelize({
   database: 'sequelize_art',
   dialect:  'postgres',
   define:   {
@@ -54,8 +54,6 @@ const db = new Sequelize({
  
 
 
-// Create the tables in the database.
-db.sync();
 
 module.exports = {
 /**
