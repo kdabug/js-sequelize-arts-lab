@@ -1,6 +1,6 @@
 const { Museum, Artwork, Artist } = require('./models');
 
-const main = async () => {
+
   // [1] Write a Sequelize query to find the Whitney from the database.
 
   const whitney = await Museum.findOne({
@@ -34,6 +34,8 @@ const main = async () => {
   // [9] You decide to take a class in modern art history, and want to
   // go see some relevant artworks.
   // Write a query to find artworks created after 1940 made out of Oil Paint.
+const main = async () => {
+  await whitney();
 };
 
 main();
