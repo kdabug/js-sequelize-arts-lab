@@ -2,14 +2,16 @@ const { Museum, Artwork, Artist } = require('./models');
 
 
   // [1] Write a Sequelize query to find the Whitney from the database.
-
-  const whitney = await Museum.findOne({
-    where: {
-      name: {
-        [Op.like]: '%Whitney%',
+  const findWhitney = async () => {
+    const whitney = await Museum.findOne({
+      where: {
+        name: {
+          [Op.like]: '%Whitney%',
+        },
       },
-    },
-  });
+    });
+    console.log('*****1****', whitney.name);
+  };
 
   // [2] Use the `getArtworks()` method and log the name
   // of each artwork at the Whitney.
@@ -34,8 +36,13 @@ const { Museum, Artwork, Artist } = require('./models');
   // [9] You decide to take a class in modern art history, and want to
   // go see some relevant artworks.
   // Write a query to find artworks created after 1940 made out of Oil Paint.
+
 const main = async () => {
-  await whitney();
+  await findWhitney();
+
+  await process.exit();
 };
+
+
 
 main();
