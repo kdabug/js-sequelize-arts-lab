@@ -6,7 +6,7 @@ const main = async () => {
   const whitney = await Museum.findOne({
     where: {
       name: {
-        $like: '%Whitney%',
+        [Op.like]: '%Whitney%',
       },
     },
   });
