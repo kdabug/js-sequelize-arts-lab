@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-
+const Op = Sequelize.Op;
 const sequelize = new Sequelize({
   database: "sequelize_art",
   dialect: "postgres",
@@ -15,7 +15,7 @@ const sequelize = new Sequelize({
  * [1] Write a Sequelize model for museums. It should include columns for:
  *  - name
  */
-const Museum = sequelize.define("museum", {
+const Museum = sequelize.define("museums", {
   name: Sequelize.STRING
 });
 
@@ -25,7 +25,7 @@ const Museum = sequelize.define("museum", {
  *  - year
  *  - medium
  */
-const Artwork = sequelize.define("artwork", {
+const Artwork = sequelize.define("artworks", {
   title: Sequelize.STRING,
   year: Sequelize.INTEGER,
   medium: Sequelize.STRING
@@ -36,7 +36,7 @@ const Artwork = sequelize.define("artwork", {
  *  - name
  */
 
-const Artist = sequelize.define("artist", {
+const Artist = sequelize.define("artists", {
   name: Sequelize.STRING
 });
 
@@ -60,5 +60,6 @@ module.exports = {
   Museum,
   Artist,
   Artwork,
-  sequelize
+  sequelize,
+  Op
 };
